@@ -15,8 +15,8 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 -- keymap.set("n", "x", '"_x')
 
 -- increment/decrement numbers
-keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
-keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
+keymap.set("n", "<C-+>", "<C-a>", { desc = "Increment number" }) -- increment
+keymap.set("n", "<C-->", "<C-x>", { desc = "Decrement number" }) -- decrement
 
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
@@ -24,20 +24,27 @@ keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) 
 keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
---keymap.set("n", "<leader>n", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
---keymap.set("n", "<leader>w", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
-keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
-keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
-keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
-keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
-keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+-- Buffer
+keymap.set("n", "<C-n>", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
+keymap.set("n", "<C-w>", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
+keymap.set("n", "<C-Tab>", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
+keymap.set("n", "<C-S-Tab>", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
+keymap.set("n", "<C-S-n>", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
--- save file with shortcut
-keymap.set("n", "<leader>w", "<cmd>:w!<CR>", { desc = "Save currently opened file" }) --  save currently opened file
-keymap.set("n", "<leader>q", "<cmd>:q!<CR>", { desc = "Close currently opened file" }) --  close currently opened file
-keymap.set("n", "<leader>b", "<cmd>:NvimTreeToggle<CR>", { desc = "Toggle nvim-tree" }) --  toggle nvim-tree
-keymap.set("n", "<leader>f", "<cmd>:Telescope find_files<CR>", { desc = "Open telescope find files" }) --  open telescope
-keymap.set("n", "<leader>F", "<cmd>:Telescope<CR>", { desc = "Open telescope find text" }) --  open telescope
+-- Custom shortcut
+keymap.set("n", "<C-w>", "<cmd>:w!<CR>", { desc = "Save currently opened file" }) --  save currently opened file
+keymap.set("n", "<C-q>", "<cmd>:q!<CR>", { desc = "Close currently opened file" }) --  close currently opened file
+keymap.set("n", "<C-b>", "<cmd>:NvimTreeToggle<CR>", { desc = "Toggle nvim-tree" }) --  toggle nvim-tree
+keymap.set("n", "<C-f>", "<cmd>:Telescope find_files<CR>", { desc = "Open telescope find files" }) --  open telescope
+keymap.set("n", "<C-F>", "<cmd>:Telescope<CR>", { desc = "Open telescope find text" }) --  open telescope
+
+-- Indentation
+keymap.set("v", "<C-Tab>", ">gv", { noremap = true, silent = true, desc = "Indent lines or a block to right" }) --  indent to right
+keymap.set("v", "<C-S-Tab>", "<gv", { noremap = true, silent = true, desc = "Indent lines or a block to left" }) --  indent to left
+
+-- IDE style comment toggle with 'control + /' key
+keymap.set("n", "<C-/>", "gcc", { remap = true, desc = "Comment Toggle" }) -- Single line Comment Toggle
+keymap.set("v", "<C-/>", "gcc", { remap = true, desc = "Comment Toggle" }) -- Multiple line Comment Toggle
 
 -- Function to yank the entire file in Neovim and notify
 function yank_all()
@@ -86,7 +93,8 @@ end
 --keymap.set('n', '<leader>', ':lua yank_all()<CR>', { noremap = true, silent = true })
 keymap.set('n', '<leader>', ':lua yank_all_new()<CR>', { noremap = true, silent = true })
 
--- Keymap to reverse the order of lines in a file just type leader+r
-keymap.set('n', '<leader>r', ':g/^/m0<CR>', { noremap = true, silent = true })
+-- Keymap to reverse the order of lines in a file
+--keymap.set('n', '<leader>r', ':g/^/m0<CR>', { noremap = true, silent = true })
+keymap.set('n', '<C-r>', ':g/^/m0<CR>', { noremap = true, silent = true })
 
 keymap.set("n", "<leader>yy", ':.,$yank "+<CR>', { desc = "Clear search highlights" })
