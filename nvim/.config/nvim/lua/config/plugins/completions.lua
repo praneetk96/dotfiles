@@ -7,6 +7,11 @@ return {
         dependencies = {
             "saadparwaiz1/cmp_luasnip",
             "rafamadriz/friendly-snippets",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-buffer",
+            -- "octaltree/cmp-look",
+            -- "uga-rosa/cmp-dictionary",
+            -- "f3fora/cmp-spell",
         },
     },
     {
@@ -37,6 +42,10 @@ return {
                 { name = "luasnip" }, -- For luasnip users.
             }, {
                 { name = "buffer" },
+                { name = "path" },
+                -- { name = "look" },
+                -- { name = "dictionary" },
+                -- { name = "spell" },
             }),
         })
     end,
