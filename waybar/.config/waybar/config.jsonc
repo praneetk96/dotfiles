@@ -20,7 +20,8 @@
 
 	"modules-left": ["custom/smallspacer","hyprland/workspaces","custom/spacer","mpris"],
 	"modules-center": ["custom/padd","custom/l_end","custom/r_end","hyprland/window","custom/padd"],
-	"modules-right": ["custom/padd","custom/l_end","group/expand","group/expand-3","group/expand-2","group/expand-4","memory","cpu","clock","custom/notification","custom/padd"],
+	// "modules-right": ["custom/padd","custom/l_end","group/expand","group/expand-3","group/expand-2","group/expand-4","memory","cpu","clock","custom/notification","custom/padd"],
+	"modules-right": ["custom/padd","custom/l_end","group/expand","pulseaudio","pulseaudio/slider","backlight","backlight/slider","group/expand-4","memory","cpu","clock","custom/notification","custom/padd"],
 
 
 // sourced from modules based on config.ctl //
@@ -405,8 +406,8 @@
             "headphone": "",
             "hands-free": "",
             "headset": "",
-            "phone": "",
-            //"phone-muted": "",
+            // "phone": "",
+            // "phone-muted": "",
             "portable": "",
             "car": "",
          "default": ["", "", ""]
