@@ -3,10 +3,12 @@
 </p>
 
 # My dotfiles
-This directory contains the dotfiles for my system, But first keep your system updated
+This directory contains the dotfiles for my system which runs on Fedora linux, before that keep your system updated
+
+On Fedora run
 
 ```
-$ sudo dnf upgrade --refresh; flatpak update
+sudo dnf upgrade --refresh; flatpak update
 ```
 
 ## Requirements
@@ -29,21 +31,21 @@ sudo dnf install stow
 First, check out the dotfiles repo in your $HOME directory using git
 
 ```
-$ git clone https://github.com/praneetk96/dotfiles.git
+git clone https://github.com/praneetk96/dotfiles.git
 
-$ cd dotfiles
+cd dotfiles
 ```
 
 then use GNU stow to create symlinks
 
 ```
-$ stow .
+stow .
 ```
 
-or
+or for a individual package
 
 ```
-$ stow -v -R -t ~ PACKAGE_NAME
+stow -v -R -t ~ PACKAGE_NAME
 ```
 
 
