@@ -3,7 +3,7 @@
 </p>
 
 # My dotfiles
-This directory contains the dotfiles for my system which runs on Fedora linux, before that keep your system updated
+This directory contains the dotfiles for my system which runs on Fedora linux. First things first let's keep your system updated
 
 On Fedora run
 
