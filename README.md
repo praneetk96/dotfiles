@@ -1,5 +1,5 @@
 <p align = "center">
-    <img src="src/images/header.gif" style="border-radius:10px">
+    <img src="src/images/header.gif" style="border-radius: 10px;">
 </p>
 
 # My dotfiles
@@ -50,5 +50,5 @@ stow -v -R -t ~ PACKAGE_NAME
 
 
 <p align = "center">
-    <img style="border-radius:50%" src="src/images/footer.gif">
+    <img src="src/images/footer.gif" style="border-radius: 10px;">
 </p>
