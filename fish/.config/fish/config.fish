@@ -192,3 +192,6 @@ starship init fish | source
 
 ### SETTING UP ZOXIDE CD COMMAND ###
 zoxide init fish | source
+
+### AFETCH ###
+afetch
