@@ -1,6 +1,6 @@
-<p align = "center">
+<div align = "center">
     <img src="src/images/header.gif" style="border-radius: 10px;">
-</p>
+</div>
 
 # My dotfiles
 This directory contains the dotfiles for my system which runs on Fedora linux. First things first let's keep your system updated
@@ -10,6 +10,11 @@ On Fedora run
 ```
 sudo dnf upgrade --refresh; flatpak update
 ```
+
+## Hyprland screenshot
+<div align = "center">
+    <img src = "src/images/hypr-rice.png" style = "border-radius: 10px;">
+</div>
 
 ## Requirements
 Ensure you have the following installed on your system
@@ -49,6 +54,6 @@ stow -v -R -t ~ PACKAGE_NAME
 ```
 
 
-<p align = "center">
+<div align = "center">
     <img src="src/images/footer.gif" style="border-radius: 10px;">
-</p>
+</div>
