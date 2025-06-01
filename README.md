@@ -1,5 +1,5 @@
 <p align = "center">
-    <img style="border-radius:50%" src="src/images/header.gif">
+    <img src="src/images/header.gif" style="border-radius:10px">
 </p>
 
 # My dotfiles
