@@ -1,0 +1,25 @@
+{
+    "extractor": {
+        "instagram": {
+            "username": "abcd",
+            "password": "****"
+        },
+        "x": {
+            "username": "abcd",
+            "password": "****"
+        },
+        "twitter": {
+            "username": "abcd",
+            "password": "****"
+        }
+    },
+    "downloader": {
+
+    },
+    "output": {
+
+    },
+    "postprocessor": {
+
+    }
+}
