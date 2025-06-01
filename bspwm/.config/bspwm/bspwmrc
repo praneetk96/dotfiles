@@ -1,0 +1,82 @@
+#!/usr/bin/sh
+
+#### AUTOSTART ####
+sxhkd &
+$HOME/.config/polybar/launch.sh &
+#polybar example &
+nitrogen --restore &
+dunst &
+nm-applet &
+#blueberry-tray &
+redshift-gtk &
+#xfce4-clipman &
+xfce4-power-manager &
+xfce4-volumed-pulse &
+/usr/bin/lxpolkit &
+lxsession -n -a &
+picom &
+#/usr/local/bin/betterlockscreen -u Pictures/WallHaven/wallhaven-g78omd.png &
+#picom --experimental-backends --vsync -f &
+
+#### MONITORS ####
+bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8 9
+#bspc monitor eDP-1 -d 1:爵2:DEV 3:SYS 4:DOC 5:VBOX 6:CHAT 7:MUS 8:VID 9:GFX
+
+#### BSPC CONFIGURATION ####
+#bspc config border_radius                8
+bspc config border_width                  2
+bspc config window_gap                    10
+bspc config top_padding                   20
+bspc config bottom_padding                0
+bspc config left_padding                  0
+bspc config right_padding                 0
+bspc config single_monocle                false
+bspc config click_to_focus                true
+bspc config split_ratio                   0.50
+bspc config borderless_monocle            true
+bspc config gapless_monocle               true
+bspc config focus_by_distance             true
+bspc config focus_follows_pointer         true
+bspc config history_aware_focus           true
+bspc config remove_disabled_monitors      true
+bspc config merge_overlapping_monitors    true
+bspc config pointer_modifier mod4
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_side
+bspc config pointer_action3 resize_corner
+
+#### BSPWM coloring ####
+bspc config normal_border_color		      "#4c566a"
+bspc config active_border_color	          "#1e1e1e"
+bspc config focused_border_color	      "#5e81ac"
+bspc config presel_feedback_color	      "#5e81ac"
+bspc config urgent_border_color 	      "#dd2727"
+
+#polybar hidden when fullscreen for vlc, youtube, mpv ...
+#find out the name of your monitor with xrandr
+#xdo below -t $(xdo id -n root) $(xdo id -a polybar-main_eDP-1)
+xdo below -t $(xdo id -n root) $(xdo id -a eDP-1)
+
+# bsp-layout
+#bsp-layout set tall 1 # Set desktop 1 layout to tall
+#bsp-layout set tall 2 # Set desktop 2 layout to tall
+#bsp-layout set tall 3 # Set desktop 3 layout to tall
+#bsp-layout set tall 4 # Set desktop 4 layout to tall
+#bsp-layout set tall 5 # Set desktop 5 layout to tall
+#bsp-layout set tall 6 # Set desktop 6 layout to tall
+#bsp-layout set tall 7 # Set desktop 7 layout to tall
+#bsp-layout set tall 8 # Set desktop 8 layout to tall
+#bsp-layout set tall 9 # Set desktop 9 layout to tall
+
+#bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Gimp-2.10 desktop='^8' follow=on
+bspc rule -a Inkscape desktop='^8' follow=on
+bspc rule -a brave-browser desktop='^1' follow=on
+bspc rule -a firefox desktop='^1' follow=on
+bspc rule -a * state=tall
+bspc rule -a mpv state=floating desktop='^8' follow=on
+bspc rule -a Alacritty state=floating
+bspc rule -a Thunar state=floating
+bspc rule -a lxappearance state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
