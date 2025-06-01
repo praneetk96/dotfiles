@@ -1,0 +1,5 @@
+#!/bin/bash
+
+wpctl set-mute @DEFAULT_AUDIO_SINK@ 1 && \
+playerctl --all-players pause || echo "No media playing or playerctl failed." 
+hyprlock

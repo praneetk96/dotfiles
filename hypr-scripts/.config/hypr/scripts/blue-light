@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Get the current hour in 24-hour format (00 to 23)
+current_hour=$(date +%H)
+
+# Remove leading zero for comparison
+current_hour=$((10#$current_hour))
+
+# Between 19 (7 PM) and 6:59 AM (6), inclusive
+if [[ $current_hour -ge 19 || $current_hour -lt 7 ]]; then
+    # It's night time: set warmer temperature
+    #hyprctl hyprsunset temperature 2500
+    hyprctl hyprsunset temperature 3000
+else
+    # It's daytime: reset to default identity
+    hyprctl hyprsunset identity
+fi
