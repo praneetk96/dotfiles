@@ -3,7 +3,11 @@
 </p>
 
 # My dotfiles
-This directory contains the dotfiles for my system
+This directory contains the dotfiles for my system, But first keep your system updated
+
+```
+$ sudo dnf upgrade --refresh; flatpak update
+```
 
 ## Requirements
 Ensure you have the following installed on your system
@@ -34,6 +38,12 @@ then use GNU stow to create symlinks
 
 ```
 $ stow .
+```
+
+or
+
+```
+$ stow -v -R -t ~ PACKAGE_NAME
 ```
 
 
