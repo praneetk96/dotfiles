@@ -1,4 +1,6 @@
-![kermit-typing](https://github.com/praneetk96/dotfiles/blob/master/src/images/header.gif)
+<p align = "center">
+    <img src="src/images/header.gif">
+</p>
 
 # My dotfiles
 This directory contains the dotfiles for my system
@@ -34,4 +36,7 @@ then use GNU stow to create symlinks
 $ stow .
 ```
 
-![bye-bye](https://github.com/praneetk96/dotfiles/blob/master/src/images/footer.gif)
+
+<p align = "center">
+    <img src="src/images/footer.gif">
+</p>
