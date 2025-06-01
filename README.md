@@ -1,3 +1,5 @@
+![kermit-typing](https://github.com/praneetk96/dotfiles/blob/master/src/images/header.gif)
+
 # My dotfiles
 This directory contains the dotfiles for my system
 
@@ -32,3 +34,4 @@ then use GNU stow to create symlinks
 $ stow .
 ```
 
+![bye-bye](https://github.com/praneetk96/dotfiles/blob/master/src/images/footer.gif)
