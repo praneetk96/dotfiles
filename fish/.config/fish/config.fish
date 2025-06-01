@@ -169,8 +169,8 @@ alias rm-bspwm='sudo dnf remove bspwm sxhkd polybar picom nitrogen xfce4-termina
 alias install-kde='sudo dnf group install kde-apps kde-desktop kde-education kde-media kde-office kde-pim kde-software-development kde-spin-initial-setup && sudo dnf install plasma-workspace-x11'
 alias rm-kde='sudo dnf group remove kde-apps kde-desktop kde-education kde-media kde-office kde-pim kde-software-development kde-spin-initial-setup && sudo dnf remove plasma-workspace-x11'
 
-alias install-budgie='sudo dnf group install budgie-desktop budgie-desktop-apps'
-alias rm-budgie='sudo dnf group remove budgie-desktop budgie-desktop-apps'
+alias install-budgie='sudo dnf group install budgie-desktop budgie-desktop-apps; sudo dnf remove plasma-discover'
+alias rm-budgie='sudo dnf group remove budgie-desktop budgie-desktop-apps; sudo dnf remove plasma-discover'
 
 alias install-gnome='sudo dnf group install workstation-product gnome-desktop gnome-games; sudo dnf install gnome-tweaks gnome-session-xsession'
 alias rm-gnome='sudo dnf group remove workstation-product gnome-desktop gnome-games; sudo dnf remove gnome-tweaks gnome-session-xsession'
