@@ -29,10 +29,18 @@ set fish_color_error '#ff6c6b'
 set fish_color_param brcyan
 
 ### FUNCTIONS ###
+
+# extract compressed files
+# function extract
+#     ~/.local/bin/extract $argv
+# end
+
+# mkdir and cd at the same time
 function mcd
     mkdir -p "$argv[1]" && cd "$argv[1]"
 end
 
+# quickly cd to most used directory
 function goto
     switch "$argv[1]"
         case "dots"
@@ -42,7 +50,7 @@ function goto
         case "code"
             cd ~/.gitlab/codechef-practice/problem-solutions
         case '*'
-            echo "Usage: goto {yt|asmr|code|...}"
+            echo "Usage: goto {dots|yt|code|...}"
     end
 end
 
