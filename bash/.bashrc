@@ -76,6 +76,9 @@ function ex {
 fi
 }
 
+# Better extraction
+# extract() { ~/.local/bin/extract "$@"; }
+
 # navigation
 up () {
   local d=""
