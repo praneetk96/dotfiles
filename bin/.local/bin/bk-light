@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Get the brightness level in percentage
+light=$(brightnessctl g -P)
+
+notify-send -t 1000 -a 'bk-light' -h int:value:$light "Brightness: ${light}%"
