@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Step 1: Output a list of installed packages into requirements.txt
+pip freeze > requirements.txt
+
+# Step 2: Replace all '==' with '>=' in requirements.txt
+sed -i 's/==/>=/g' requirements.txt
+
+# Step 3: Upgrade all packages to the latest versions allowed by requirements.txt
+pip install -r requirements.txt --upgrade
+
+echo "All packages upgraded successfully."
