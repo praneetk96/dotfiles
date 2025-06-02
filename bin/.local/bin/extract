@@ -1,0 +1,67 @@
+#!/bin/bash
+
+# Usage: ./extract.sh <file>
+
+REQUIRED_TOOLS=(
+  "tar" "unzip" "bunzip2" "gunzip" "unxz"
+  "unrar" "7z" "unzstd" "lzip" "lzma"
+)
+
+MISSING_TOOLS=()
+
+# Check for required tools
+check_tools() {
+    for tool in "${REQUIRED_TOOLS[@]}"; do
+        if ! command -v "$tool" &> /dev/null; then
+            MISSING_TOOLS+=("$tool")
+        fi
+    done
+}
+
+install_missing_tools() {
+    if [ "${#MISSING_TOOLS[@]}" -gt 0 ]; then
+        echo "Installing missing tools: ${MISSING_TOOLS[*]}"
+        sudo dnf install -y "${MISSING_TOOLS[@]}"
+    fi
+}
+
+extract_file() {
+    FILE="$1"
+
+    if [ ! -f "$FILE" ]; then
+        echo "Error: '$FILE' is not a valid file."
+        exit 1
+    fi
+
+    case "$FILE" in
+        *.tar.bz2|*.tbz2)   tar xvjf "$FILE" ;;
+        *.tar.gz|*.tgz)     tar xvzf "$FILE" ;;
+        *.tar.xz|*.txz)     tar --xz -xvf "$FILE" ;;
+        *.tar.zst|*.tzst)   unzstd -c "$FILE" | tar xvf - ;;
+        *.tar)              tar xvf "$FILE" ;;
+        *.bz2)              bunzip2 "$FILE" ;;
+        *.gz)               gunzip "$FILE" ;;
+        *.xz)               unxz "$FILE" ;;
+        *.zst)              unzstd "$FILE" ;;
+        *.zip)              unzip "$FILE" ;;
+        *.rar)              unrar x "$FILE" ;;
+        *.7z)               7z x "$FILE" ;;
+        *.lz)               lzip -d "$FILE" ;;
+        *.lzma)             unlzma "$FILE" ;;
+        *)                  echo "Unsupported file type: '$FILE'" && exit 1 ;;
+    esac
+    echo "Extraction complete."
+}
+
+main() {
+    if [ $# -eq 0 ]; then
+        echo "Usage: $0 <archive_file>"
+        exit 1
+    fi
+
+    check_tools
+    install_missing_tools
+    extract_file "$1"
+}
+
+main "$@"
