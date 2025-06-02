@@ -1,0 +1,8 @@
+#!/bin/bash
+
+YT=$(which yt-dlp)
+
+EXPORT_DIR=downloaded_videos
+mkdir -p $EXPORT_DIR
+
+$YT --batch-file links.txt -o "$EXPORT_DIR/%(title)s.%(ext)s"
