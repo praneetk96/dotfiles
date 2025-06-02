@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# safe-clean: Trash files safely with extension-based control.
+# Supports:
+#   -s <ext>: Save only this extension, delete the rest
+#   -r <ext>: Remove only this extension, keep the rest
+
+# Function to print help/usage
+print_usage() {
+    echo "Usage:"
+    echo "  $0 <directory> -s <ext_to_save>   # Save only files with this extension"
+    echo "  $0 <directory> -r <ext_to_remove> # Remove only files with this extension"
+    echo
+    echo "Examples:"
+    echo "  $0 ~/Videos/yt -s txt     # Delete everything except .txt files"
+    echo "  $0 ~/Downloads -r mp4     # Delete only .mp4 files"
+    echo
+    echo "Note: Requires 'trash-cli' to be installed for safe deletion."
+}
+
+# Ensure trash-cli is installed
+if ! command -v trash >/dev/null 2>&1; then
+    echo "Error: 'trash' command not found. Install 'trash-cli' first (e.g., 'sudo apt/dnf install trash-cli')."
+    exit 1
+fi
+
+# Argument validation
+if [ "$#" -ne 3 ]; then
+    echo "Error: Invalid number of arguments."
+    print_usage
+    exit 1
+fi
+
+TARGET_DIR="$1"
+FLAG="$2"
+EXT="$3"
+
+# Validate directory
+if [ ! -d "$TARGET_DIR" ]; then
+    echo "Error: '$TARGET_DIR' is not a valid directory."
+    exit 1
+fi
+
+# Core logic
+case "$FLAG" in
+    -s)
+        echo "Trashing all files except '*.$EXT' in '$TARGET_DIR'..."
+        find "$TARGET_DIR" -type f ! -name "*.$EXT" -exec trash {} +
+        ;;
+    -r)
+        echo "Trashing only '*.$EXT' files in '$TARGET_DIR'..."
+        find "$TARGET_DIR" -type f -name "*.$EXT" -exec trash {} +
+        ;;
+    *)
+        echo "Error: Unknown flag '$FLAG'"
+        print_usage
+        exit 1
+        ;;
+esac
+
+# Trash empty directories
+find "$TARGET_DIR" -type d -empty -exec trash {} +
+
+echo "✅ Cleanup complete. Files were moved to trash."
