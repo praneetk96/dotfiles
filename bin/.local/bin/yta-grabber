@@ -1,0 +1,18 @@
+#!/bin/bash
+
+YT=$(which yt-dlp)
+
+URL_LIST=./links.txt
+
+AUDIO_URL=()
+while IFS= read -r line; do
+  AUDIO_URL+=("$line")
+done < ${URL_LIST}
+
+EXPORT_DIR=downloaded_audios
+mkdir -p $EXPORT_DIR
+
+for video_url in "${AUDIO_URL[@]}";do 
+    echo "Downloading $video_url"
+    $YT $video_url -S ext:m4a -x --embed-thumbnail --convert-thumbnail png --cookies ~/.local/bin/brave-cookies.txt -o "$EXPORT_DIR/%(title)s.%(ext)s"
+done 
