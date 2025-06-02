@@ -1,0 +1,4 @@
+#!/bin/bash
+
+gg=$(which gallery-dl)
+$gg -i links.txt -C ~/.local/bin/brave-cookies.txt
