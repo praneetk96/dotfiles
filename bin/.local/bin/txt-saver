@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# clean-it: Move all files (except .txt) and empty directories to trash
+
+# Check if a directory argument was provided
+if [ -z "$1" ]; then
+    echo "Usage: $0 <target_directory>"
+    exit 1
+fi
+
+TARGET_DIR="$1"
+
+# Check if the provided path is a valid directory
+if [ ! -d "$TARGET_DIR" ]; then
+    echo "Error: '$TARGET_DIR' is not a valid directory."
+    exit 1
+fi
+
+echo "Trashing non-txt files and empty directories in: $TARGET_DIR"
+
+# Trash all files except .txt
+find "$TARGET_DIR" -type f ! -name "*.txt" -exec trash {} +
+
+# Trash empty directories
+find "$TARGET_DIR" -type d -empty -exec trash {} +
+
+echo "Files moved to trash. You can restore them using your system's Trash/Recycle Bin."
