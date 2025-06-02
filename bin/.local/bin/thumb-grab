@@ -1,0 +1,17 @@
+#!/bin/bash
+
+YT=$(which yt-dlp)
+URL_LIST=./links.txt
+
+VIDEO_URL=()
+while IFS= read -r line; do
+  VIDEO_URL+=("$line")
+done < ${URL_LIST}
+
+EXPORT_DIR=thumbnails
+mkdir -p $EXPORT_DIR
+
+for video_url in "${VIDEO_URL[@]}";do 
+    echo "Downloading $video_url"
+    $YT $video_url --skip-download --write-thumbnail --convert-thumbnails png -o "$EXPORT_DIR/%(title)s.%(ext)s"
+done 
