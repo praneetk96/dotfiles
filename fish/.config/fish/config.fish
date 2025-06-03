@@ -192,6 +192,9 @@ alias rm-qtile='sudo dnf remove dmenu dunst lxappearance lxsession nitrogen pico
 alias install-hyprland='sudo dnf install hypridle hyprland hyprland-devel hyprland-qt-support hyprland-qtutils hyprlock hyprpaper hyprpicker hyprpolkitagent hyprsunset hyprsysteminfo mako qt5-qtwayland qt6-qtwayland sddm swaybg waybar waypaper wofi rofi wlogout clipse foot fzf chafa jq grim hyprshot SwayNotificationCenter'
 alias rm-hyprland='sudo dnf remove hypridle hyprland hyprland-devel hyprland-qt-support hyprland-qtutils hyprlock hyprpaper hyprpicker hyprpolkitagent hyprsunset hyprsysteminfo mako qt5-qtwayland qt6-qtwayland sddm swaybg waybar waypaper wofi rofi wlogout clipse foot fzf chafa jq grim hyprshot SwayNotificationCenter'
 
+alias install-gaming='sudo dnf install steam lutris wine q4wine gamescope goverlay'
+alias rm-gaming='sudo dnf remove steam lutris wine q4wine gamescope goverlay'
+
 alias mpvtest='mpv --hwdec=auto --hwdec-codecs=all'
 alias rm-thumbnails='rm -rf .cache/thumbnails/'
 
