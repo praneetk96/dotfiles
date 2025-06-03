@@ -24,3 +24,6 @@ _darcs
 
 FISH
 \fish_variables
+
+NVIM
+lazy-lock.json
