@@ -46,6 +46,7 @@ extract_file() {
         *.zip)              unzip "$FILE" ;;
         *.rar)              unrar x "$FILE" ;;
         *.7z)               7z x "$FILE" ;;
+        *.iso)              7z x "$FILE" ;;
         *.lz)               lzip -d "$FILE" ;;
         *.lzma)             unlzma "$FILE" ;;
         *)                  echo "Unsupported file type: '$FILE'" && exit 1 ;;
