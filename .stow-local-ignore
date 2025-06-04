@@ -26,4 +26,7 @@ FISH
 \fish_variables
 
 NVIM
-lazy-lock.json
+\lazy-lock.json
+
+QTILE
+\.pyc
