@@ -14,6 +14,7 @@ set TERM "xterm-256color"                         # Sets the terminal type
 set EDITOR nvim                                   # $EDITOR use Neovim in terminal
 set VISUAL nvim                                   # $VISUAL use Neovim in GUI mode
 set SUDO_EDITOR nvim
+set FZF_DEFAULT_COMMAND fd --type f             # Setting fd as default for fzf which uses find
 
 ### SET MANPAGER
 ### Uncomment only one of these!
@@ -79,6 +80,10 @@ end
 
 
 ### ALIASES ###
+
+# Search files in terminal
+alias search="find /home/$USER -type f | fzf --preview 'bat --color always {}'"
+
 # navigation
 alias ..='cd ..'
 alias ...='cd ../..'
