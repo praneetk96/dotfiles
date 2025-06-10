@@ -171,7 +171,8 @@ alias jctl="journalctl -p 3 -xb"
 # python apps (yt-dlp, gallery-dl,...)
 alias yta-grabber='yt-dlp --batch-file links.txt -S ext:m4a -x --embed-thumbnail --convert-thumbnail png --cookies ~/.local/bin/brave-cookies.txt -o "downloaded_audios/%(title)s.%(ext)s"'
 alias yt-upd='python3 -m pip install -U "yt-dlp[default]"'
-alias gallery-upd='python3 -m pip install -U "gallery-dl[default]"'
+alias gallery-upd='python3 -m pip install -U gallery-dl'
+alias pip-upd='python3 -m pip install --upgrade pip setuptools wheel'
 
 # IMP
 alias install-nvidia='sudo dnf install kernel-devel akmod-nvidia xorg-x11-drv-nvidia xorg-x11-drv-nvidia-libs xorg-x11-drv-nvidia-libs.i686'
@@ -197,8 +198,8 @@ alias rm-qtile='sudo dnf remove dmenu dunst lxappearance lxsession nitrogen pico
 alias install-hyprland='sudo dnf install hypridle hyprland hyprland-devel hyprland-qt-support hyprland-qtutils hyprlock hyprpaper hyprpicker hyprpolkitagent hyprsunset hyprsysteminfo mako qt5-qtwayland qt6-qtwayland sddm swaybg waybar waypaper wofi rofi wlogout clipse foot fzf chafa jq grim hyprshot SwayNotificationCenter'
 alias rm-hyprland='sudo dnf remove hypridle hyprland hyprland-devel hyprland-qt-support hyprland-qtutils hyprlock hyprpaper hyprpicker hyprpolkitagent hyprsunset hyprsysteminfo mako qt5-qtwayland qt6-qtwayland sddm swaybg waybar waypaper wofi rofi wlogout clipse foot fzf chafa jq grim hyprshot SwayNotificationCenter'
 
-alias install-gaming='sudo dnf install steam lutris wine q4wine gamescope goverlay protontricks umu-launcher'
-alias rm-gaming='sudo dnf remove steam lutris wine q4wine gamescope goverlay protontricks umu-launcher'
+alias install-gaming='sudo dnf install steam lutris wine q4wine gamescope goverlay protontricks umu-launcher vkBasalt mangohud'
+alias rm-gaming='sudo dnf remove steam lutris wine q4wine gamescope goverlay protontricks umu-launcher vkBasalt mangohud'
 
 alias mpvtest='mpv --hwdec=auto --hwdec-codecs=all'
 alias rm-thumbnails='rm -rf .cache/thumbnails/'
