@@ -2,4 +2,4 @@
 /fish/.config/fish/fish_variables
 
 # Ignore lazy-lock.json file
-nvim/.config/nvim/lazy-lock.json
+/nvim/.config/nvim/lazy-lock.json
