@@ -34,6 +34,7 @@ keymap.set("n", "<C-S-n>", "<cmd>tabnew %<CR>", { desc = "Open current buffer in
 -- Custom shortcut
 keymap.set("n", "<C-w>", "<cmd>:w!<CR>", { desc = "Save currently opened file" }) --  save currently opened file
 keymap.set("n", "<C-q>", "<cmd>:q!<CR>", { desc = "Close currently opened file" }) --  close currently opened file
+keymap.set("n", "<C-S-.>", "<cmd>:g/^$/d<CR>", { desc = "Remove empty line fast" }) --  removes empty/blank lines from a file
 keymap.set("n", "<C-b>", "<cmd>:NvimTreeToggle<CR>", { desc = "Toggle nvim-tree" }) --  toggle nvim-tree
 keymap.set("n", "<C-f>", "<cmd>:Telescope find_files<CR>", { desc = "Open telescope find files" }) --  open telescope
 keymap.set("n", "<C-F>", "<cmd>:Telescope<CR>", { desc = "Open telescope find text" }) --  open telescope
