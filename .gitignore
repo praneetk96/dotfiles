@@ -1,5 +1,5 @@
 # Ignore fish_variables file
-fish_variables
+**/fish_variables
 
 # Ignore neovim lazy-lock.json file
-lazy-lock.json
+**/lazy-lock.json
