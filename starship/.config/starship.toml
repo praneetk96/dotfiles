@@ -33,7 +33,8 @@ error_symbol = "[](bold red)"
 #  
 # configure directory
 [directory]
-read_only = " "
+read_only = " 󰌾"
+# read_only = " "
 truncation_length = 10
 truncate_to_repo = true # truncates directory to root folder if in github repo
 style = "bold italic blue"
@@ -45,16 +46,20 @@ disabled = false
 style = "bold italic red"
 
 [aws]
-symbol = "  "
+symbol = "  "
+# symbol = "  "
 
 [conda]
-symbol = " "
+symbol = " "
+# symbol = " "
 
 [dart]
 symbol = " "
+# symbol = " "
 
-#[directory]
-#read_only = " "
+# [directory]
+# read_only = " 󰌾"
+# read_only = " "
 
 [docker_context]
 symbol = " "
@@ -80,8 +85,10 @@ stashed = "[${count}*](green)"
 modified = "[${count}+](yellow)" 
 deleted =  "[${count}-](red)" 
 conflicted =  "[${count}~](red)" 
-ahead = "⇡${count}"
-behind = "⇣${count}"
+ahead = "${count}"
+# ahead = "⇡${count}"
+behind = "${count}"
+# behind = "⇣${count}"
 untracked = "[${count}?](blue)" 
 staged = "[${count}+](green)" 
 
@@ -97,7 +104,8 @@ am = "am"
 am_or_rebase = "am/rebase"
 
 [golang]
-symbol = " "
+symbol = "󰟓 "
+# symbol = " "
 
 [hg_branch]
 symbol = " "
@@ -109,19 +117,24 @@ symbol = " "
 symbol = " "
 
 [haskell]
-symbol = "λ "
+symbol = " "
+# symbol = "λ "
 
 [memory_usage]
-symbol = " "
+symbol = " "
+# symbol = "󰍛 "
+# symbol = " "
 
 [nim]
-symbol = " "
+symbol = " "
+# symbol = " "
 
 [nix_shell]
 symbol = " "
 
 [package]
-symbol = " "
+symbol = " "
+# symbol = " "
 
 [perl]
 symbol = " "
@@ -131,8 +144,9 @@ symbol = " "
 
 [python]
 #disabled = true
-symbol = "🐍 "
-#pyenv_version_name = true
+symbol = " "
+# symbol = "🐍 "
+# pyenv_version_name = true
 format = 'via [${symbol}python (${version} )(\($virtualenv\) )]($style)'
 style = "bold yellow"
 pyenv_prefix = "venv "
@@ -153,7 +167,8 @@ symbol = " "
 symbol = " "
 
 [swift]
-symbol = "ﯣ "
+symbol = " "
+# symbol = "ﯣ "
 
 [nodejs]
 format = "via [ Node.js $version](bold green) "
