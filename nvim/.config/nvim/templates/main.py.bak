@@ -7,17 +7,5 @@
 #  Codechef's problem code: %UPPERFILE%
 #  Date: %DATE%
 
-import sys
-input = sys.stdin.readline
-
-def solve():
+for _ in range(int(input())):
     # cook your dish here
-    pass
-
-def main():
-    t = int(input())
-    for _ in range(t):
-        solve()
-
-if __name__ == "__main__":
-    main()
