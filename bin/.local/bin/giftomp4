@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Check if input is provided
+if [ -z "$1" ]; then
+  echo "Usage: giftomp4 input.gif [duration]"
+  exit 1
+fi
+
+input="$1"
+duration="${2:-10}"  # Use second arg if provided, else default to 10
+basename="${input%.*}"
+output="${basename}.mp4"
+
+ffmpeg -stream_loop 9999 -i "$input" \
+  -c:v libx264 -preset slow -crf 18 -pix_fmt yuv444p -t "$duration" "$output"
+
