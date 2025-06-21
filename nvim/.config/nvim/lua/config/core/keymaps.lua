@@ -9,7 +9,7 @@ local keymap = vim.keymap -- for conciseness
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
 -- clear search highlights
-keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+-- keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- delete single character without copying into register
 -- keymap.set("n", "x", '"_x')
@@ -32,8 +32,9 @@ keymap.set("n", "<C-S-Tab>", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) -
 keymap.set("n", "<C-S-n>", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
 -- Custom shortcut
-keymap.set("n", "<C-w>", "<cmd>:w!<CR>", { desc = "Save currently opened file" }) --  save currently opened file
+keymap.set("n", "<C-s>", "<cmd>:w!<CR>", { desc = "Save currently opened file" }) --  save currently opened file
 keymap.set("n", "<C-q>", "<cmd>:q!<CR>", { desc = "Close currently opened file" }) --  close currently opened file
+keymap.set("n", "<C-c>", "<cmd>:nohlsearch<CR>", { desc = "Clear search highlights" }) --  clear search highlights
 keymap.set("n", "<C-S-.>", "<cmd>:g/^$/d<CR>", { desc = "Remove empty line fast" }) --  removes empty/blank lines from a file
 keymap.set("n", "<C-b>", "<cmd>:NvimTreeToggle<CR>", { desc = "Toggle nvim-tree" }) --  toggle nvim-tree
 keymap.set("n", "<C-f>", "<cmd>:Telescope find_files<CR>", { desc = "Open telescope find files" }) --  open telescope
@@ -68,9 +69,6 @@ function yank_all()
   vim.notify('Entire file yanked!', vim.log.levels.INFO)
 end
 
-
-
-
 function yank_all_new()
   -- Move to the first line
   vim.api.nvim_feedkeys("gg", "n", false)
@@ -89,13 +87,29 @@ function yank_all_new()
 end
 
 
-
 -- Keymap to call the yank_all function with just <leader>
---keymap.set('n', '<leader>', ':lua yank_all()<CR>', { noremap = true, silent = true })
-keymap.set('n', '<leader>', ':lua yank_all_new()<CR>', { noremap = true, silent = true })
+-- keymap.set('n', '<leader>', ':lua yank_all_new()<CR>', { noremap = true, silent = true })
+-- keymap.set('n', '<leader>', ':%y+<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>', function()
+    vim.cmd('%y+')
+    vim.notify(' File yanked to clipboard', vim.log.levels.INFO)
+end, { noremap = true, silent = true })
+
 
 -- Keymap to reverse the order of lines in a file
---keymap.set('n', '<leader>r', ':g/^/m0<CR>', { noremap = true, silent = true })
-keymap.set('n', '<C-r>', ':g/^/m0<CR>', { noremap = true, silent = true })
+-- keymap.set('n', '<C-r>', ':g/^/m0<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-r>', function()
+  -- Capture current buffer lines
+  local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
 
-keymap.set("n", "<leader>yy", ':.,$yank "+<CR>', { desc = "Clear search highlights" })
+  -- Reverse the lines
+  for i = 1, math.floor(#lines / 2) do
+    lines[i], lines[#lines - i + 1] = lines[#lines - i + 1], lines[i]
+  end
+
+  -- Set reversed lines back to the buffer in one go
+  vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
+
+  -- Notify
+  vim.notify('🔄 Reversed all lines — press u to undo', vim.log.levels.INFO)
+end, { noremap = true, silent = true })
