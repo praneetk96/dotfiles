@@ -202,7 +202,8 @@ alias install-gaming='sudo dnf install steam lutris wine q4wine gamescope goverl
 alias rm-gaming='sudo dnf remove steam lutris wine q4wine gamescope goverlay protontricks umu-launcher vkBasalt mangohud'
 
 alias mpvtest='mpv --hwdec=auto --hwdec-codecs=all'
-alias rm-thumbnails='rm -rf .cache/thumbnails/'
+alias rm-thumbnails='rm -rf ~/.cache/thumbnails/'
+alias rm-cache='rm -rf ~/.cache/'
 
 ### SETTING THE STARSHIP PROMPT ###
 starship init fish | source
@@ -211,4 +212,4 @@ starship init fish | source
 zoxide init fish | source
 
 ### AFETCH ###
-afetch
+# afetch
