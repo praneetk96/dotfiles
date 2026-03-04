@@ -45,8 +45,10 @@ keymap.set("v", "<C-Tab>", ">gv", { noremap = true, silent = true, desc = "Inden
 keymap.set("v", "<C-S-Tab>", "<gv", { noremap = true, silent = true, desc = "Indent lines or a block to left" }) --  indent to left
 
 -- IDE style comment toggle with 'control + /' key
-keymap.set("n", "<C-/>", "gcc", { remap = true, desc = "Comment Toggle" }) -- Single line Comment Toggle
-keymap.set("v", "<C-/>", "gcc", { remap = true, desc = "Comment Toggle" }) -- Multiple line Comment Toggle
+-- keymap.set("n", "<C-/>", "gcc", { remap = true, desc = "Comment Toggle" }) -- Single line Comment Toggle
+-- keymap.set("v", "<C-/>", "gcc", { remap = true, desc = "Comment Toggle" }) -- Multiple line Comment Toggle
+keymap.set("n", "<leader>/", "gcc", { remap = true, desc = "Comment Toggle" }) -- Single line Comment Toggle
+keymap.set("v", "<leader>/", "gc", { remap = true, desc = "Comment Toggle" }) -- Multiple line Comment Toggle
 
 -- Function to yank the entire file in Neovim and notify
 function yank_all()
