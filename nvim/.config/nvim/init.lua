@@ -1,9 +1,6 @@
 require("config.core")
 require("config.lazy")
 
---require("lazy").setup({{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"}})
-
-
 vim.api.nvim_exec([[
   augroup filetemplates
     autocmd!
